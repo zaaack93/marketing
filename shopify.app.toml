@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "marketing"
+client_id = "6eaa39abbb93b90b8b285aa303c47a5a"
+application_url = "https://tight-los-junction-rangers.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://tight-los-junction-rangers.trycloudflare.com/auth/callback",
+  "https://tight-los-junction-rangers.trycloudflare.com/auth/shopify/callback",
+  "https://tight-los-junction-rangers.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "ecom-v2-technologies.myshopify.com"
