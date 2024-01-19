@@ -3,10 +3,10 @@ import React from 'react'
 
 type Props = {}
 
-const Index = (props: Props) => {
+const BillingPage = (props: Props) => {
   return (
-    <Page>Home page</Page>
+    <Page>app.billing</Page>
   )
 }
 
-export default Index
+export default BillingPage
