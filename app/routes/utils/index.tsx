@@ -22,4 +22,4 @@ export const tabs=[
         content:'Completed',
         panelID:'prospects-content-one'
     }
-  ]
+]
