@@ -7,6 +7,7 @@ type Props = {}
 
 const CampaingsPage = (props: Props) => {
   const [ selected,setSelected ]=useState(0)
+  const [activate, setActivate] = useState(false);
 
   const handleTabsChanged = useCallback((i:number) => {
     setSelected(i);
@@ -16,7 +17,7 @@ const CampaingsPage = (props: Props) => {
   console.log(tabs)
 
   return (
-    <Page fullWidth  title="Compaings" compactTitle primaryAction={{content: 'Create new'}}>
+    <Page fullWidth  title="Compaings" primaryAction={{content: 'Create new'}}>
         <Layout>
         <Layout.Section>
             <LegacyCard>
@@ -30,7 +31,7 @@ const CampaingsPage = (props: Props) => {
         </Layout.Section>
 
         <Layout.Section>
-          <CreateCompainForm />
+          <CreateCompainForm activate={activate} setActivate={setActivate} />
         </Layout.Section>
 
       </Layout>

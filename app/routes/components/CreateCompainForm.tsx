@@ -2,11 +2,12 @@ import React, { useCallback, useState } from "react";
 import { Button, Layout, Modal, Page, TextField } from "@shopify/polaris";
 import { Form } from "@remix-run/react";
 
-type Props = {};
+type Props = {
+  activate:boolean,
+  setActivate: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const CreateCompainForm = (props: Props) => {
-  const [activate, setActivate] = useState(false);
-
+const CreateCompainForm:React.FC<Props> = ({activate,setActivate}) => {
   const handleSetActivate = useCallback(() => {
     setActivate(!activate);
   }, [activate]);
