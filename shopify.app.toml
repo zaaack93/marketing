@@ -2,7 +2,7 @@
 
 name = "marketing"
 client_id = "6eaa39abbb93b90b8b285aa303c47a5a"
-application_url = "https://hamburg-strings-signs-refresh.trycloudflare.com"
+application_url = "https://mercedes-option-infant-void.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://hamburg-strings-signs-refresh.trycloudflare.com/auth/callback",
-  "https://hamburg-strings-signs-refresh.trycloudflare.com/auth/shopify/callback",
-  "https://hamburg-strings-signs-refresh.trycloudflare.com/api/auth/callback"
+  "https://mercedes-option-infant-void.trycloudflare.com/auth/callback",
+  "https://mercedes-option-infant-void.trycloudflare.com/auth/shopify/callback",
+  "https://mercedes-option-infant-void.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -1,6 +1,7 @@
 import { Button, InlineGrid, Layout, LegacyCard, Page, Tabs, Text } from '@shopify/polaris'
 import React, { useCallback, useState } from 'react'
 import { tabs } from './utils'
+import CreateCompainForm from './components/CreateCompainForm'
 
 type Props = {}
 
@@ -9,19 +10,14 @@ const CampaingsPage = (props: Props) => {
 
   const handleTabsChanged = useCallback((i:number) => {
     setSelected(i);
-  }, [setSelected]);
+  }, [selected]);
+
 
   console.log(tabs)
 
   return (
-    <Page fullWidth>
+    <Page fullWidth  title="Compaings" compactTitle primaryAction={{content: 'Create new'}}>
         <Layout>
-        <Layout.Section>
-          <InlineGrid columns={2}>
-            <Text variant='heading3xl' as='h2'>Compaings</Text>
-            <Button>Create new</Button>
-          </InlineGrid>
-        </Layout.Section>
         <Layout.Section>
             <LegacyCard>
                 <Tabs tabs={tabs} selected={selected} onSelect={handleTabsChanged}>
@@ -32,6 +28,11 @@ const CampaingsPage = (props: Props) => {
 
             </LegacyCard>
         </Layout.Section>
+
+        <Layout.Section>
+          <CreateCompainForm />
+        </Layout.Section>
+
       </Layout>
     </Page>
   )
