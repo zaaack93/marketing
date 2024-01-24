@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.13.0",
+    "@react-email/components": "^0.0.14",
     "@remix-run/dev": "^2.0.0",
     "@remix-run/node": "^2.0.0",
     "@remix-run/react": "^2.0.0",
@@ -34,7 +35,9 @@
     "isbot": "^4.1.0",
     "prisma": "^4.13.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-email": "^2.0.0",
+    "resend": "^3.1.0"
   },
   "devDependencies": {
     "@remix-run/eslint-config": "^2.0.0",

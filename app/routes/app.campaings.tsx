@@ -1,7 +1,7 @@
-import { Button, InlineGrid, Layout, LegacyCard, Page, Tabs, Text } from '@shopify/polaris'
+import { Layout, LegacyCard, Page, Tabs } from '@shopify/polaris'
 import React, { useCallback, useState } from 'react'
 import { tabs } from './utils'
-import CreateCompainForm from './components/CreateCompainForm'
+import CreateCompainForm from './app.createcompainform'
 
 type Props = {}
 

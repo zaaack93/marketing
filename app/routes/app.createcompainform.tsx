@@ -1,14 +1,33 @@
 import React, { useCallback, useState } from "react";
 import { Button, Layout, Modal, Page, TextField } from "@shopify/polaris";
-import { Form, useActionData, useSubmit } from "@remix-run/react";
+import { Form, json, useActionData, useSubmit } from "@remix-run/react";
 import type { ActionFunction } from "@remix-run/node";
+import { Resend } from "resend";
+import { EmailNew } from "~/emails/New";
+import VercelInviteUserEmail from "~/emails/Custom";
+
+const resend = new Resend('re_6SrMmFee_KoPqFLvS4Ft3njNzrNCXNb1r')
 
 type Props = {
   activate:boolean,
   setActivate: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const action : ActionFunction = async({request}) => {}
+export const action : ActionFunction = async({request}) => {
+  console.log("here")
+  debugger
+  const { data,error } = await resend.emails.send({
+    from: 'REMIX <onboarding@resend.dev>',
+    to : ['bouzangadzakaria@gmail.com'],
+    subject: 'hello youtube',
+    react: <EmailNew  url={''}/>
+  })
+  if(error){
+    return json({error},400)
+  }
+
+  return json({data},200)
+}
 
 const CreateCompainForm:React.FC<Props> = ({activate,setActivate}) => {
   const handleSetActivate = useCallback(() => {
@@ -35,7 +54,7 @@ const CreateCompainForm:React.FC<Props> = ({activate,setActivate}) => {
         title="Create new Email Campaing"
         primaryAction={{
           content:'Send',
-          onAction: ()=> sendEmails
+          onAction: ()=> sendEmails()
         }}
         secondaryActions={{
           content:'Finish Later',
@@ -46,7 +65,7 @@ const CreateCompainForm:React.FC<Props> = ({activate,setActivate}) => {
 
 
       <Modal.Section>
-        <Form>
+        <Form onSubmit={sendEmails} action="/app/createcompainform" method="POST">
           <Layout>
             <Layout.Section>
                 <TextField
@@ -88,6 +107,9 @@ const CreateCompainForm:React.FC<Props> = ({activate,setActivate}) => {
                 />
 
                 <Button submit>send</Button>
+            </Layout.Section>
+            <Layout.Section>
+              <VercelInviteUserEmail content={value} />
             </Layout.Section>
           </Layout>
         </Form>
