@@ -5,19 +5,18 @@ import CreateCompainForm from './components/CreateCompainForm'
 
 type Props = {}
 
+
 const CampaingsPage = (props: Props) => {
   const [ selected,setSelected ]=useState(0)
   const [activate, setActivate] = useState(false);
+
 
   const handleTabsChanged = useCallback((i:number) => {
     setSelected(i);
   }, [selected]);
 
-
-  console.log(tabs)
-
   return (
-    <Page fullWidth  title="Compaings" primaryAction={{content: 'Create new'}}>
+    <Page fullWidth  title="Compaings" primaryAction={{content: 'Create new',onAction:()=>{setActivate(true)}}}>
         <Layout>
         <Layout.Section>
             <LegacyCard>

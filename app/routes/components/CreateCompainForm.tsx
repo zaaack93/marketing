@@ -1,11 +1,14 @@
 import React, { useCallback, useState } from "react";
 import { Button, Layout, Modal, Page, TextField } from "@shopify/polaris";
-import { Form } from "@remix-run/react";
+import { Form, useActionData, useSubmit } from "@remix-run/react";
+import type { ActionFunction } from "@remix-run/node";
 
 type Props = {
   activate:boolean,
   setActivate: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export const action : ActionFunction = async({request}) => {}
 
 const CreateCompainForm:React.FC<Props> = ({activate,setActivate}) => {
   const handleSetActivate = useCallback(() => {
@@ -13,23 +16,26 @@ const CreateCompainForm:React.FC<Props> = ({activate,setActivate}) => {
   }, [activate]);
 
   const [value, setValue] = useState('default');
+  const submit = useSubmit();
+  const actionData = useActionData<typeof action>()
+  console.log("🚀 ~ actionData:", actionData)
+  const sendEmails = () => submit({}, {replace: true,method:'POST'})
 
   const handleOnChangeText = useCallback((newValue:string) => {
     setValue(newValue);
   }, []);
+  
 
-  const activator = <Button onClick={handleSetActivate}>Open</Button>;
 
   return (
     <Page>
       <Modal
-        activator={activator}
         open={activate}
         onClose={handleSetActivate}
         title="Create new Email Campaing"
         primaryAction={{
-          content:'Save',
-          onAction: ()=> {}
+          content:'Send',
+          onAction: ()=> sendEmails
         }}
         secondaryActions={{
           content:'Finish Later',
