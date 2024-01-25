@@ -2,18 +2,18 @@
 
 name = "marketing"
 client_id = "6eaa39abbb93b90b8b285aa303c47a5a"
-application_url = "https://foundations-zoo-cst-dear.trycloudflare.com"
+application_url = "https://brown-fire-chrome-share.trycloudflare.com"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "write_products,read_customers,write_customers"
 
 [auth]
 redirect_urls = [
-  "https://foundations-zoo-cst-dear.trycloudflare.com/auth/callback",
-  "https://foundations-zoo-cst-dear.trycloudflare.com/auth/shopify/callback",
-  "https://foundations-zoo-cst-dear.trycloudflare.com/api/auth/callback"
+  "https://brown-fire-chrome-share.trycloudflare.com/auth/callback",
+  "https://brown-fire-chrome-share.trycloudflare.com/auth/shopify/callback",
+  "https://brown-fire-chrome-share.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
